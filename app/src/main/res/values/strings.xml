@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Project</string>
+    <string name="what_is_the_pinyin_for_this_character">What is the pinyin for this character?</string>
+    <string name="submit">Submit</string>
+    <string name="character">character</string>
+    <string name="_0_10">0/10</string>
+    <string name="w">Wǒ</string>
+    <string name="gu">Guó</string>
+    <string name="n">Ní</string>
+    <string name="t">Tā</string>
+    <string name="score">Score</string>
+    <string name="finish">Finish</string>
+</resources>
