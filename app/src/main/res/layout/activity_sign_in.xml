@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/backgroundsplash"
     android:orientation="vertical"
-    tools:context=".activities.SignUp">
+    tools:context=".activities.SignUpActivity">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -39,7 +39,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginEnd="100dp"
             android:gravity="center_vertical"
-            android:text="Welcome back (name)"
+            android:text="Welcome back"
             android:textSize="50sp"
             android:textStyle="bold" />
 
@@ -57,10 +57,10 @@
                 android:padding="16dp">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/emailSignUp"
+                    android:id="@+id/emailEditSignIn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email Address" />
+                    android:hint="@string/email_address" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -71,10 +71,11 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/passwordSignUp"
+                    android:id="@+id/passwordEditSignIn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Password" />
+                    android:inputType="textPassword"
+                    android:hint="@string/password" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -85,7 +86,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/signUpButton"
+                    android:id="@+id/signInButton"
                     android:layout_width="144dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -94,7 +95,7 @@
                     android:layout_marginEnd="0dp"
                     android:background="@drawable/other_rounded_button"
                     android:gravity="center"
-                    android:text="Sign In" />
+                    android:text="@string/sign_in_button" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

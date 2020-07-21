@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/backgroundsplash"
     android:orientation="vertical"
-    tools:context=".activities.SignUp">
+    tools:context=".activities.SignUpActivity">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -58,10 +58,10 @@
 
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/nameSignUp"
+                    android:id="@+id/nameEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Name" />
+                    android:hint="@string/name" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -73,10 +73,10 @@
 
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/emailSignUp"
+                    android:id="@+id/emailEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email Address" />
+                    android:hint="@string/email_address" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -87,10 +87,11 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/passwordSignUp"
+                    android:id="@+id/passwordEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Password" />
+                    android:inputType="textPassword"
+                    android:hint="@string/password" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"

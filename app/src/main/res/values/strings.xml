@@ -10,4 +10,12 @@
     <string name="t">Tā</string>
     <string name="score">Score</string>
     <string name="finish">Finish</string>
+    <string name="please_wait">Please wait&#8230;</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="quiz_test">Quiz test</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="sign_in_button">Sign In</string>
 </resources>

@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "294585519401",
-    "firebase_url": "https://project-84492.firebaseio.com",
-    "project_id": "project-84492",
-    "storage_bucket": "project-84492.appspot.com"
+    "project_number": "647259863259",
+    "firebase_url": "https://toukan-627c5.firebaseio.com",
+    "project_id": "toukan-627c5",
+    "storage_bucket": "toukan-627c5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:294585519401:android:6d39db02f913da232b3b38",
+        "mobilesdk_app_id": "1:647259863259:android:2dc51363eb7ef2d72cb4fe",
         "android_client_info": {
-          "package_name": "com.example.project"
+          "package_name": "com.learning.toukan"
         }
       },
       "oauth_client": [
         {
-          "client_id": "294585519401-mbvvhpkaf2k9s6cil8r0tg23c1pmv3f8.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.project",
-            "certificate_hash": "cdbe05eaeb665a956dbf27d8b79012878699f86f"
-          }
-        },
-        {
-          "client_id": "294585519401-rtjrqs23bpehfr1o9043542muk87ato7.apps.googleusercontent.com",
+          "client_id": "647259863259-7iu4ai1r9k1d607sob78bgd3ja9re8b7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAzHCBEWcBsjxfkSRKyH6lo_q7Lsz46G6A"
+          "current_key": "AIzaSyDpPW30fX87EJFwmdkp6CCiimLu4Ngpzy4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "294585519401-rtjrqs23bpehfr1o9043542muk87ato7.apps.googleusercontent.com",
+              "client_id": "647259863259-7iu4ai1r9k1d607sob78bgd3ja9re8b7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

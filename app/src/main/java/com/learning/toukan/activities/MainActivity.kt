@@ -1,12 +1,11 @@
-package com.example.project.activities
+package com.learning.toukan.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.project.R
+import com.learning.toukan.R
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -17,15 +16,14 @@ class MainActivity : AppCompatActivity() {
 //            Toast.makeText(this, "Button was clicked", Toast.LENGTH_SHORT).show()
 //        }
         quizTest.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
         signUpButtonHome.setOnClickListener{
-            startActivity(Intent(this, SignUp::class.java))}
+            startActivity(Intent(this, SignUpActivity::class.java))}
 
         signInButtonHome.setOnClickListener{
             startActivity(Intent(this, SignInActivity::class.java))}
-
 
     }}

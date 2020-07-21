@@ -19,7 +19,7 @@
         android:layout_marginEnd="88dp"
         android:layout_marginBottom="27dp"
         android:background="@drawable/rounded_button"
-        android:text="Sign in"
+        android:text="@string/sign_in"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/signUpButtonHome"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
         android:layout_marginEnd="88dp"
         android:background="@drawable/rounded_button"
         android:layout_marginBottom="18dp"
-        android:text="Sign up"
+        android:text="@string/sign_up"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/quizTest"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,43 +57,26 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="66dp"
         android:background="@drawable/rounded_button"
-        android:text="Quiz test"
-        android:textSize="30dp"
+        android:text="@string/quiz_test"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpButtonHome" />
 
-
-    <TextView
-        android:id="@+id/toukan"
-        android:layout_width="168dp"
-        android:layout_height="195dp"
-        android:layout_margin="10dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="48dp"
-        android:text="Toukan"
-        android:textColor="#363A43"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/signInButtonHome"
-        app:layout_constraintEnd_toStartOf="@+id/logoSign"
-        app:layout_constraintHorizontal_bias="0.006"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ImageView
         android:id="@+id/logoSign"
-        android:layout_width="341dp"
-        android:layout_height="299dp"
+        android:layout_width="369dp"
+        android:layout_height="348dp"
         android:layout_gravity="center"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logotoucan" />
+        app:srcCompat="@drawable/logotoukanx" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

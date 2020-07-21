@@ -13,12 +13,14 @@
 
 
     <LinearLayout
+        android:id="@+id/ll_question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
         android:padding="15dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:visibility="invisible">
 
         <TextView
             android:id="@+id/tv_question"

@@ -1,4 +1,4 @@
-package com.example.project
+package com.learning.toukan
 
 import androidx.room.RoomDatabase
 
