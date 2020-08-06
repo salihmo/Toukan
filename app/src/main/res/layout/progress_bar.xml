@@ -1,0 +1,18 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@android:color/transparent" >
+
+    <ProgressBar
+        android:id="@+id/progressBarTransparent"
+        android:layout_width="wrap_content"
+        android:indeterminate="true"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/transparent"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@android:color/holo_orange_light"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>

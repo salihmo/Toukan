@@ -9,33 +9,38 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.lifecycleScope
 import com.google.firebase.firestore.FirebaseFirestore
 import com.learning.toukan.Constants
 import com.learning.toukan.Question
 import com.learning.toukan.R
+import com.learning.toukan.models.Quiz
 import kotlinx.android.synthetic.main.activity_second.*
-import kotlinx.coroutines.launch
 import kotlin.random.Random
 
-class SecondActivity : AppCompatActivity(), View.OnClickListener {
+class QuizActivity : AppCompatActivity(), View.OnClickListener {
 
     private var currentQuestion: Int = 1
     private var questionList: MutableList<Question> = mutableListOf()
     private var theOption: Int = 0
     private var correctAnswer: Int = 0
     private var bAnswerSelected = false
+    private lateinit var quiz: Quiz
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
         val db = FirebaseFirestore.getInstance()
 
-        val id = intent.getStringExtra("quiz_id") ?: ""
-        if (id.isEmpty()) finish()
-        val quiz = db.collection("quizzes").document(id).collection("questions")
-
-        quiz.get().addOnSuccessListener { result ->
+        val q = intent.getParcelableExtra<Quiz>("quiz")
+        if (q == null) {
+            finish()
+            return
+        } else {
+            quiz = q
+        }
+        Toast.makeText(this, "Quiz: ${quiz.title}", Toast.LENGTH_SHORT).show()
+        val questions = db.collection("quizzes").document(quiz.id).collection("questions")
+        questions.get().addOnSuccessListener { result ->
             for (question in result) {
                 val correctPosition = Random.nextInt(0,4)
                 val questions = (question["incorrect"] as List<String>).toMutableList()
@@ -48,6 +53,8 @@ class SecondActivity : AppCompatActivity(), View.OnClickListener {
         }.addOnFailureListener { exception->
             Toast.makeText(this, "An error occurred", Toast.LENGTH_SHORT).show()
         }
+
+        // show quiz title with quiz.title
 
         tv_option_one.setOnClickListener(this)
         tv_option_two.setOnClickListener(this)
@@ -67,6 +74,7 @@ class SecondActivity : AppCompatActivity(), View.OnClickListener {
             btn_submit.text = "Submit"
         }
         progressBar.progress = currentQuestion
+        progressBar.max = questionList.size
         tv_progress.text = "$currentQuestion" + "/" + progressBar.max
         tv_question.text = question!!.question
         iv_image.setImageResource(question.image)
@@ -101,14 +109,15 @@ class SecondActivity : AppCompatActivity(), View.OnClickListener {
             R.id.tv_option_four -> {selectedOption(tv_option_four, 3)
             }
             R.id.btn_submit ->{
-                if(theOption == 0) {
+                if(theOption == -1) {
                     currentQuestion++
                     when {
                         currentQuestion <= questionList!!.size -> {
                             placeQuestion()
                         }
                         else -> {
-                            val intent = Intent(this, Results::class.java)
+                            val intent = Intent(this, ResultsActivity::class.java)
+                            intent.putExtra(Constants.quiz, quiz)
                             intent.putExtra(Constants.totalCorrect, correctAnswer)
                             intent.putExtra(Constants.totalQuestions, questionList!!.size)
                             startActivity(intent)
@@ -136,7 +145,7 @@ class SecondActivity : AppCompatActivity(), View.OnClickListener {
                     }else{
                         btn_submit.text ="Next"
                     }
-                    theOption = 0
+                    theOption = -1
                 }
             }
         }

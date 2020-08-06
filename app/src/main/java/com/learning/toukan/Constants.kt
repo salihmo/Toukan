@@ -15,8 +15,10 @@ object Constants{
         }
     }
 
-    const val USERS: String = "users"
 
+    const val quiz: String = "quiz"
+    const val USERS: String = "users"
+    const val QUIZZES: String = "quizzes"
     const val totalQuestions: String = "total_question"
     const val totalCorrect: String = "total_correct"
 

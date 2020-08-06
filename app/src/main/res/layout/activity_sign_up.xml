@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundsplash"
+    android:background="@drawable/backgroundsunreverse"
     android:orientation="vertical"
     tools:context=".activities.SignUpActivity">
 
@@ -13,27 +13,18 @@
         android:id="@+id/toolbar_signUp"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
-
-    <TextView
-        android:id="@+id/signUpTitle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:text="Sign Up"
-        android:textStyle="bold"
-        android:textSize="20sp" />
     </androidx.appcompat.widget.Toolbar>
 
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="659dp"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/signUpInfo"
-            android:layout_width="305dp"
+            android:layout_width="378dp"
             android:layout_height="192dp"
             android:layout_marginStart="50dp"
             android:layout_marginTop="50dp"
@@ -45,14 +36,18 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="315dp"
-            android:layout_height="245dp"
+            android:layout_height="270dp"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="100dp">
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="100dp"
+            android:gravity="center"
+            app:cardElevation="5dp"
+            app:cardBackgroundColor="#FB9E68"
+            app:cardCornerRadius="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="300dp"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -61,7 +56,10 @@
                     android:id="@+id/nameEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/name" />
+                    android:hint="@string/name"
+                    android:textColorHint="#FFFFFF"
+                    android:textStyle="bold"
+                    app:backgroundTint="@android:color/holo_orange_light" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -76,7 +74,10 @@
                     android:id="@+id/emailEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/email_address" />
+                    android:hint="@string/email_address"
+                    android:textColorHint="#FFFFFF"
+                    android:textStyle="bold"
+                    app:backgroundTint="@android:color/holo_orange_light" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -90,8 +91,11 @@
                     android:id="@+id/passwordEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/password"
                     android:inputType="textPassword"
-                    android:hint="@string/password" />
+                    android:textColorHint="#FFFFFF"
+                    android:textStyle="bold"
+                    app:backgroundTint="@android:color/holo_orange_light" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -101,17 +105,40 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <androidx.appcompat.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/passwordConfirmEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/confirm_password"
+                    android:inputType="textPassword"
+                    android:textColorHint="#FFFFFF"
+                    android:textStyle="bold"
+                    app:backgroundTint="@android:color/holo_orange_light" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="16dp">
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/signUpButton"
-                    android:layout_width="144dp"
+                    android:layout_width="135dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="0dp"
-                    android:background="@drawable/other_rounded_button"
                     android:gravity="center"
-                    android:text="Sign Up" />
+                    android:text="Sign Up"
+                    android:textColor="@android:color/holo_orange_light"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@android:color/white"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@android:color/holo_orange_light" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

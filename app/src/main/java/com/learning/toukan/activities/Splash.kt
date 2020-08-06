@@ -17,9 +17,9 @@ class Splash : AppCompatActivity() {
 
             var currentUserID = FirestoreClass().getCurrentUserID()
             if (currentUserID.isNotEmpty()) {
-                startActivity(Intent(this, SelectQuizActivity::class.java))
-            } else {
                 startActivity(Intent(this, MainActivity::class.java))
+            } else {
+                startActivity(Intent(this, SignInActivity::class.java))
             }
             finish()
         }, 2500)

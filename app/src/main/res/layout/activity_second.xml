@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="@drawable/background"
-    tools:context=".activities.SecondActivity"
+    tools:context=".activities.QuizActivity"
     android:indeterminateTintMode="src_atop"
     android:indeterminateTint="@android:color/holo_orange_light"
     >

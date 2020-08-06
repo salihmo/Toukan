@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.ProfileFragment"
+    android:background="@drawable/backgroundprofile">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_picture"
+            android:layout_width="0dp"
+            android:layout_height="217dp"
+            android:layout_marginTop="108dp"
+            android:drawingCacheQuality="high"
+            android:gravity="center"
+            android:src="@drawable/profiledefault"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="7dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="76dp"
+            android:gravity="center"
+            app:cardBackgroundColor="#FB9E68"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_picture">
+
+            <TextView
+                android:id="@+id/profile_stages_word"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="83dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:gravity="center"
+                android:text="@string/Stages_completed"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/profile_stages_number"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                tools:text="@string/_333" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="28dp"
+            app:cardBackgroundColor="#FB9E68"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+            <TextView
+                android:id="@+id/profile_tokens_number"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                tools:text="@string/_555" />
+
+            <TextView
+                android:id="@+id/profile_tokens_word"
+                android:layout_width="111dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="80dp"
+                android:gravity="center"
+                android:text="@string/tokens"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="28dp"
+            app:cardBackgroundColor="#FB9E68"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+            <TextView
+                android:id="@+id/profile_stickers_number"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                tools:text="@string/_777" />
+
+            <TextView
+                android:id="@+id/profile_stickers_word"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="80dp"
+                android:gravity="center"
+                android:text="@string/stickers"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <ImageView
+            android:id="@+id/settings_button"
+            android:layout_width="54dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="139dp"
+            android:layout_marginBottom="28dp"
+            android:src="@drawable/ic_baseline_settings_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3"
+            app:layout_constraintVertical_bias="0.201" />
+
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/name"
+            android:textColor="#FF7F50"
+            android:textSize="80sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/profile_picture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

@@ -1,16 +1,17 @@
 package com.learning.toukan.activities
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.auth.User
 import com.learning.toukan.R
 import kotlinx.android.synthetic.main.activity_sign_in.*
-import kotlinx.android.synthetic.main.activity_sign_up.*
+
 
 class SignInActivity : BaseActivity() {
     private lateinit var auth: FirebaseAuth
@@ -18,31 +19,72 @@ class SignInActivity : BaseActivity() {
 
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         setContentView(R.layout.activity_sign_in)
 
         signInButton.setOnClickListener {
             signInUser() }
 
-        setActionBar()
+        
+
+//        setActionBar()
+
+        forgotPasswordButton.setOnClickListener{
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Reset password")
+            builder.setMessage("Please enter the email address registered to the account, a link to reset your password will be sent.")
+            val view = layoutInflater.inflate(R.layout.forgot_password_dialog, null)
+            val email = view.findViewById<EditText>(R.id.et_email)
+
+            builder.setView(view)
+            builder.setPositiveButton("Send", DialogInterface.OnClickListener { _, _ ->
+                resetPassword(email)
+            })
+            builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ ->  })
+            builder.show()
+        }
+
+
+        not_a_member.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
+        }
+
     }
 
     fun signInSucess(user: com.learning.toukan.models.User){
         hideProgressDialog()
-        startActivity(Intent(this, SelectQuizActivity:: class.java))
+        startActivity(Intent(this, MainActivity:: class.java))
         finish()
     }
 
 
-    private fun setActionBar() {
-        setSupportActionBar(toolbar_signIn)
+    private fun resetPassword(email: EditText) {
+        if (TextUtils.isEmpty(email.text.toString())) {
+            showSnack("Enter your email address")
+            return
+        } else {
+            auth.sendPasswordResetEmail(email.text.toString())
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "Email sent.", Toast.LENGTH_SHORT).show()
+                    } else {
+                      showSnack("No account has been found with that email address.")
+                    }
 
-        val actionBar = supportActionBar
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.back_arrow)
+                }
         }
-        toolbar_signIn.setNavigationOnClickListener { onBackPressed() }
     }
+
+//    private fun setActionBar() {
+//        setSupportActionBar(toolbar_signIn)
+//
+//        val actionBar = supportActionBar
+//        if (actionBar != null) {
+//            actionBar.setDisplayHomeAsUpEnabled(true)
+//            actionBar.setHomeAsUpIndicator(R.drawable.back_arrow)
+//        }
+//        toolbar_signIn.setNavigationOnClickListener { onBackPressed() }
+//    }
 
     private fun signInUser(){
         val email: String = emailEditSignIn.text.toString().trim()
@@ -58,7 +100,8 @@ class SignInActivity : BaseActivity() {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d("Sign in", "createUserWithEmail:success")
                         val user = auth.currentUser
-                        startActivity(Intent(this, SelectQuizActivity:: class.java))
+                        startActivity(Intent(this, MainActivity:: class.java))
+                        finish()
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w("Sign in", "createUserWithEmail:failure", task.exception)
@@ -71,13 +114,15 @@ class SignInActivity : BaseActivity() {
 
     private fun validateForm(email: String, password: String) : Boolean{
         return if (TextUtils.isEmpty(email)){
-                showErrorSnack("Enter your email address")
+                showSnack("Enter your email address")
                 false
             } else if
         (TextUtils.isEmpty(password)){
-                showErrorSnack("Enter your password")
+                showSnack("Enter your password")
                 false
             }else {
                 true
             }
-        }}
+
+        }
+    }
