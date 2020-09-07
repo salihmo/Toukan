@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Project</string>
+    <string name="app_name">Toukan</string>
     <string name="what_is_the_pinyin_for_this_character">What is the pinyin for this character?</string>
     <string name="submit">Submit</string>
     <string name="character">character</string>
@@ -15,7 +15,6 @@
     <string name="sign_up">Sign up</string>
     <string name="quiz_test">Quiz test</string>
     <string name="email_address">Email Address</string>
-    <string name="password">Password</string>
     <string name="sign_in_button">Sign In</string>
     <string name="board">Board</string>
     <string name="next">Next</string>
@@ -158,4 +157,16 @@
     <string name="new_password">New password</string>
     <string name="confirm_new_password">Confirm new password</string>
     <string name="change_password">Change Password</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="password">Password</string>
+    <string name="confirm_your_changes">Confirm your changes</string>
+    <string name="back_to_profile">back to profile</string>
+
+
+    <string name="sticker_cost">%s Tokens</string>
+    <string name="start">Start</string>
+    <string name="sticker_store">Sticker Store</string>
+    <string name="save">Save</string>
+    <string name="lessons">Lessons</string>
+    <string name="begin">Begin</string>
 </resources>

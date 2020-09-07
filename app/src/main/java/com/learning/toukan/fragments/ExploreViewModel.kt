@@ -19,7 +19,7 @@ class ExploreViewModel: ViewModel() {
     var usersStage: Int = 0
         set(value) {
             field = value
-            val quizCollection = firestore.collection(Constants.QUIZZES).orderBy("stage")
+            val quizCollection = firestore.collection(Constants.QUIZZES).whereEqualTo("type", "stage")
             quizCollection.get().addOnSuccessListener { result ->
                 val quizzes = mutableListOf<Pair<Quiz, Boolean>>()
                 for (quiz in result) {
@@ -27,7 +27,7 @@ class ExploreViewModel: ViewModel() {
                     quizzes.add(Pair(q, (q.stage <= usersStage + 1)))
                 }
                 _quizzes.postValue(quizzes)
+                quizzes.sortBy { it.first.stage }
             }
         }
-
 }

@@ -4,21 +4,126 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.BoardFragment">
+    tools:context=".fragments.BoardFragment"
+    android:background="@drawable/polybackground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.learning.toukan.stickers.MotionView
+            android:id="@+id/motion_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="81dp"
+                android:layout_marginBottom="602dp"
+                android:background="@drawable/option_border"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <TextView
+                    android:id="@+id/sticker_board_english"
+                    android:layout_width="164dp"
+                    android:minWidth="164dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="0dp"
+                    android:background="@drawable/option_border"
+                    android:drawingCacheQuality="high"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                    android:text="English"
+                    android:textSize="30dp" />
+
+                <TextView
+                    android:id="@+id/sticker_board_character"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:minWidth="104dp"
+                    android:background="@drawable/option_border"
+                    android:drawingCacheQuality="high"
+                    android:gravity="center"
+                    android:textAppearance="@style/MaterialAlertDialog.MaterialComponents.Title.Icon"
+                    android:padding="2dp"
+                    android:text="漢字"
+                    android:textStyle="bold"
+                    android:textSize="50dp" />
+
+                <TextView
+                    android:id="@+id/sticker_board_pinyin"
+                    android:layout_width="164dp"
+                    android:minWidth="164dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="0dp"
+                    android:background="@drawable/option_border"
+                    android:drawingCacheQuality="high"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                    android:gravity="center"
+                    android:text="Pinyin"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+        </com.learning.toukan.stickers.MotionView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.94">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/save_board_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:gravity="center"
+                android:text="@string/save"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:visibility="invisible"
+                android:textColor="@android:color/holo_orange_light"
+                app:rippleColor="@android:color/holo_orange_light"
+                app:backgroundTint="@android:color/white"
+                app:cornerRadius="10dp"
+                app:strokeColor="@android:color/holo_orange_light" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/delete_board_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:gravity="center"
+                android:text="delete"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:textColor="@android:color/holo_orange_light"
+                app:rippleColor="@android:color/holo_orange_light"
+                app:backgroundTint="@android:color/white"
+                app:cornerRadius="10dp"
+                app:strokeColor="@android:color/holo_orange_light" />
+
+        </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- TODO: Update blank fragment layout -->
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_picture"
-        android:layout_width="189dp"
-        android:layout_height="189dp"
-        android:layout_marginStart="77dp"
-        android:layout_marginTop="164dp"
-        android:drawingCacheQuality="high"
-        app:civ_border_color="@android:color/white"
-        app:civ_border_width="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.234"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </FrameLayout>

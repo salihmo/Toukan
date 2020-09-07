@@ -1,6 +1,8 @@
 package com.learning.toukan.activities
 
 import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -23,6 +25,7 @@ open class BaseActivity : AppCompatActivity() {
     fun showProgressDialog(text: String) {
         mProgressDialog = Dialog(this)
         mProgressDialog.setContentView(R.layout.progress_bar)
+        mProgressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         mProgressDialog.show()
     }
     fun hideProgressDialog() {

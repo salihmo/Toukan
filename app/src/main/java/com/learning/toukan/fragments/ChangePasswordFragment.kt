@@ -69,6 +69,8 @@ class ChangePasswordFragment : Fragment() {
                     )
 
                 currentUser?.reauthenticate(credentials)?.addOnCompleteListener {
+
+
                     if (it.isSuccessful) {
                         Toast.makeText(context, "Your password has been changed.", Toast.LENGTH_SHORT).show()
 
@@ -87,15 +89,17 @@ class ChangePasswordFragment : Fragment() {
                             }
 
                     } else {
-                        Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Unable to change password. \n" +
+                                "Make sure that all the details are correct.", Toast.LENGTH_LONG).show()
                     }
                 }
 
             } else {
-                Toast.makeText(context, "Passwords do not match.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Unable to change password. \n" +
+                        "Make sure that all the details are correct.", Toast.LENGTH_LONG).show()
             }
         } else {
-            Toast.makeText(context, "Make sure everything is filled out.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Unable to change password. \nMake sure that all the details are correct.", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -103,8 +107,3 @@ class ChangePasswordFragment : Fragment() {
         }
 //        toolbar_signUp.setNavigationOnClickListener { onBackPressed()
 //            overridePendingTransition(R.anim.in_left_slide, R.anim.out_slide_right)
-
-
-
-
-

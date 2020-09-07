@@ -20,7 +20,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.ActionOnlyNavDirections
-import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -47,29 +46,24 @@ class SettingsFragment : Fragment() {
     var resolver: ContentResolver? = activity?.contentResolver
 
     private val activityViewModel: ActivityViewModel by activityViewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.settings_fragment, container, false)
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         activityViewModel.user.observe(viewLifecycleOwner, Observer { user ->
             Glide
                 .with(this)
                 .load(user.profileImage)
                 .centerCrop()
                 .placeholder(R.drawable.profiledefault)
-                .into(profile_picture_settings);
-
+                .into(profile_picture_settings)
             settings_name.setText(user.name)
             settings_email.setText(user.email)
         })
-
         view.findViewById<View>(R.id.signOutButton).setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(activity, SignInActivity::class.java)
@@ -78,14 +72,15 @@ class SettingsFragment : Fragment() {
         }
 
         back_settings.setOnClickListener {
-            findNavController().navigateUp()
+            back_settings.playAnimation()
+           val directions = SettingsFragmentDirections.actionNavigationSettingsToNavigationProfile()
+            findNavController().navigate(directions)
         }
         changePasswordButton.setOnClickListener {
             val changePassword = ActionOnlyNavDirections(R.id.action_change_password)
-            findNavController().navigate(changePassword)
-        }
-
+            findNavController().navigate(changePassword) }
         updateDetailsButton.setOnClickListener {
+            findNavController().navigateUp()
             if (imageURI != null) {
                 uploadImageFirestore()
             }
@@ -156,13 +151,13 @@ class SettingsFragment : Fragment() {
 //        MainActivity().showProgressDialog(resources.getString(R.string.please_wait))
 
         if (imageURI != null) {
-            val sRef: StorageReference =
+            val referenceForStorage: StorageReference =
                 FirebaseStorage.getInstance().reference.child(
                     "Profile Picture" +
                             System.currentTimeMillis() + "." + getFileExtension(imageURI)
                 )
 
-            sRef.putFile(imageURI!!).addOnSuccessListener { taskSnapshot ->
+            referenceForStorage.putFile(imageURI!!).addOnSuccessListener { taskSnapshot ->
                 Log.i(
                     "Firebase P.Picture URL",
                     taskSnapshot.metadata!!.reference!!.downloadUrl.toString()
@@ -186,7 +181,6 @@ class SettingsFragment : Fragment() {
     private fun getFileExtension(uri: Uri?): String? {
         return MimeTypeMap.getSingleton().getExtensionFromMimeType(resolver?.getType(uri!!))
     }
-
     private fun changeUserName() {
         if (settings_name.text.toString().isNotEmpty()) {
             FirestoreClass().updateName(settings_name.text.toString())
@@ -194,7 +188,6 @@ class SettingsFragment : Fragment() {
             FirestoreClass().updateName(User().name)
         }
     }
-
     private fun changeEmail() {
         if (settings_email.text.toString().isNotEmpty()) {
             FirestoreClass().updateEmail(settings_email.text.toString())
@@ -203,4 +196,3 @@ class SettingsFragment : Fragment() {
         }
     }
 }
-

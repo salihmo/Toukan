@@ -23,7 +23,7 @@ class SignUpActivity : BaseActivity() {
     }
 
     fun userRegisteredSuccess(){
-        Toast.makeText(this@SignUpActivity, "You have successfully registered", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@SignUpActivity, "Welcome to Toukan!", Toast.LENGTH_SHORT).show()
         hideProgressDialog()
         FirebaseAuth.getInstance().signOut()
         finish()
@@ -43,7 +43,7 @@ class SignUpActivity : BaseActivity() {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true)
             actionBar.setHomeAsUpIndicator(R.drawable.back_arrow)
-            actionBar.setTitle("")
+            actionBar.setTitle(null)
         }
 
         toolbar_signUp.setNavigationOnClickListener {
@@ -75,7 +75,7 @@ class SignUpActivity : BaseActivity() {
                     } else {
                         Toast.makeText(
                             this@SignUpActivity,
-                            "Registration failed",
+                            "Registration failed, please check the details entered.",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -85,19 +85,19 @@ class SignUpActivity : BaseActivity() {
     private fun validateForm(name: String, email: String, password: String) : Boolean{
     return when {
         TextUtils.isEmpty(name)->{
-            showSnack("Please enter your name")
+            showSnack("Please enter your name.")
             false
         }
         TextUtils.isEmpty(email)->{
-            showSnack("Please enter your email address")
+            showSnack("Please enter your email address.")
             false
         }
         TextUtils.isEmpty(password)->{
-            showSnack("Please enter your password")
+            showSnack("Please enter your password.")
             false
         }
         passwordEdit.text.toString() != passwordConfirmEdit.text.toString() -> {
-            showSnack("The passwords entered do not match")
+            showSnack("The passwords entered do not match.")
             false
         }
         else -> {

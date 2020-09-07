@@ -14,6 +14,57 @@
         android:layout_height="match_parent">
 
 
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/birdsanimation"
+            android:layout_width="430dp"
+            android:layout_height="331dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/gray_seagulls"
+            app:lottie_repeatMode="reverse"
+            app:lottie_speed="1" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/clouds_animation"
+            android:layout_width="435dp"
+            android:layout_height="196dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="185dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.73"
+            app:layout_constraintStart_toEndOf="@+id/profile_picture"
+            app:layout_constraintTop_toTopOf="@+id/profile_name"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/moving_clouds"
+            app:lottie_repeatMode="restart"
+            app:lottie_speed="0.2" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/clouds_animation_inverse"
+            android:layout_width="435dp"
+            android:layout_height="196dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="144dp"
+            android:layout_marginEnd="185dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.728"
+            app:layout_constraintStart_toEndOf="@+id/profile_picture"
+            app:layout_constraintTop_toTopOf="@+id/profile_name"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/moving_clouds"
+            app:lottie_repeatMode="restart"
+            app:lottie_speed="-0.2" />
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_picture"
             android:layout_width="0dp"
@@ -28,6 +79,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -46,7 +98,7 @@
                 android:id="@+id/profile_stages_word"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="83dp"
+                android:layout_marginStart="88dp"
                 android:layout_marginEnd="0dp"
                 android:layout_marginBottom="0dp"
                 android:gravity="center"
@@ -57,7 +109,7 @@
 
             <TextView
                 android:id="@+id/profile_stages_number"
-                android:layout_width="80dp"
+                android:layout_width="84dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="0dp"
                 android:gravity="center"
@@ -82,7 +134,7 @@
 
             <TextView
                 android:id="@+id/profile_tokens_number"
-                android:layout_width="80dp"
+                android:layout_width="85dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="0dp"
                 android:gravity="center"
@@ -93,9 +145,9 @@
 
             <TextView
                 android:id="@+id/profile_tokens_word"
-                android:layout_width="111dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="88dp"
                 android:gravity="center"
                 android:text="@string/tokens"
                 android:textColor="@android:color/white"
@@ -117,7 +169,7 @@
 
             <TextView
                 android:id="@+id/profile_stickers_number"
-                android:layout_width="80dp"
+                android:layout_width="83dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@android:color/white"
@@ -129,7 +181,7 @@
                 android:id="@+id/profile_stickers_word"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="88dp"
                 android:gravity="center"
                 android:text="@string/stickers"
                 android:textColor="@android:color/white"
@@ -141,13 +193,15 @@
 
         <ImageView
             android:id="@+id/settings_button"
-            android:layout_width="54dp"
-            android:layout_height="44dp"
+            android:layout_width="48dp"
+            android:layout_height="47dp"
             android:layout_marginStart="140dp"
             android:layout_marginTop="23dp"
             android:layout_marginEnd="139dp"
             android:layout_marginBottom="28dp"
-            android:src="@drawable/ic_baseline_settings_24"
+            android:background="@drawable/ic_baseline_settings_24"
+            android:foregroundTint="@android:color/white"
+            android:src="@drawable/ripple"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"

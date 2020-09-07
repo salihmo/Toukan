@@ -7,13 +7,18 @@
         android:icon="@drawable/ic_profile"/>
 
     <item
+        android:id ="@+id/navigation_lessons"
+        android:title="@string/lessons"
+        android:icon="@drawable/ic_book"/>
+
+    <item
         android:id ="@+id/navigation_explore"
         android:title="@string/explore"
         android:icon="@drawable/ic_explore"/>
 
     <item
         android:id ="@+id/navigation_store"
-        android:title="@string/store"
+        android:title="@string/sticker_store"
         android:icon="@drawable/ic_store"/>
 
     <item

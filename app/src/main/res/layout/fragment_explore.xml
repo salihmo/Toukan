@@ -5,15 +5,85 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.ExploreFragment"
-    android:background="@drawable/backgroundsplash">
+    android:background="@drawable/backgroundplain">
 
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="420dp"
+        android:layout_height="105dp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="#fe9f5a"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/explore_profile_picture"
+            android:layout_width="91dp"
+            android:layout_height="81dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/profiledefault"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="6dp"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/curious_toucan"
+            android:layout_width="119dp"
+            android:layout_height="87dp"
+            android:layout_marginStart="305dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/curious_toucan"
+            app:lottie_repeatMode="reverse"
+            app:lottie_speed="1" />
+
+        <TextView
+            android:id="@+id/current_stage_word"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:layout_marginTop="20dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+            android:layout_marginLeft="115dp"
+            android:gravity="center_vertical"
+            android:text="Next Stage:"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/current_stage_number"
+            android:layout_width="55dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:text="1"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/quizzes_list_recyclerview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="110dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,9 +25,7 @@ class SignInActivity : BaseActivity() {
         signInButton.setOnClickListener {
             signInUser() }
 
-        
 
-//        setActionBar()
 
         forgotPasswordButton.setOnClickListener{
             val builder = AlertDialog.Builder(this)
@@ -35,29 +33,23 @@ class SignInActivity : BaseActivity() {
             builder.setMessage("Please enter the email address registered to the account, a link to reset your password will be sent.")
             val view = layoutInflater.inflate(R.layout.forgot_password_dialog, null)
             val email = view.findViewById<EditText>(R.id.et_email)
-
             builder.setView(view)
+            builder.setIcon(R.drawable.revive)
             builder.setPositiveButton("Send", DialogInterface.OnClickListener { _, _ ->
                 resetPassword(email)
             })
             builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ ->  })
             builder.show()
         }
-
-
         not_a_member.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
-
     }
-
     fun signInSucess(user: com.learning.toukan.models.User){
         hideProgressDialog()
         startActivity(Intent(this, MainActivity:: class.java))
         finish()
     }
-
-
     private fun resetPassword(email: EditText) {
         if (TextUtils.isEmpty(email.text.toString())) {
             showSnack("Enter your email address")
@@ -97,16 +89,16 @@ class SignInActivity : BaseActivity() {
                 .addOnCompleteListener(this) { task ->
                     hideProgressDialog()
                     if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
                         Log.d("Sign in", "createUserWithEmail:success")
                         val user = auth.currentUser
                         startActivity(Intent(this, MainActivity:: class.java))
+                        Toast.makeText(this, "Let's learn some Mandarin" + "!", Toast.LENGTH_SHORT).show()
                         finish()
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w("Sign in", "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(baseContext, "Authentication failed.",
-                            Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, "No account with the details entered has been found.",
+                            Toast.LENGTH_LONG).show()
                     }
                 }
         }
@@ -125,4 +117,8 @@ class SignInActivity : BaseActivity() {
             }
 
         }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+    }
     }

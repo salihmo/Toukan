@@ -11,13 +11,20 @@
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_navigation_profile_to_settingsFragment"
-            app:destination="@id/navigation_settings" />
+            app:destination="@id/navigation_settings"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down" />
     </fragment>
     <fragment
         android:id="@+id/navigation_explore"
         android:name="com.learning.toukan.fragments.ExploreFragment"
         android:label="Explore"
         tools:layout="@layout/fragment_explore" />
+    <fragment
+        android:id="@+id/navigation_lessons"
+        android:name="com.learning.toukan.fragments.LessonsFragment"
+        android:label="Lessons"
+        tools:layout="@layout/fragment_lessons" />
     <fragment
         android:id="@+id/navigation_store"
         android:name="com.learning.toukan.fragments.StoreFragment"
@@ -36,6 +43,11 @@
         <action
             android:id="@+id/action_change_password"
             app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_navigation_profile"
+            app:destination="@id/navigation_profile"
+            app:enterAnim="@anim/slide_down2"
+            app:exitAnim="@anim/slide_up2" />
     </fragment>
     <fragment
         android:id="@+id/changePasswordFragment"
@@ -44,6 +56,8 @@
         tools:layout="@layout/fragment_change_password" >
         <action
             android:id="@+id/action_back_to_settings"
-            app:destination="@id/navigation_settings" />
+            app:destination="@id/navigation_settings"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down" />
     </fragment>
 </navigation>

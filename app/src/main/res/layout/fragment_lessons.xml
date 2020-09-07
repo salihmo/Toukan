@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ExploreFragment"
+    android:background="@drawable/backgroundplain">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardViewLesson"
+        android:layout_width="420dp"
+        android:layout_height="105dp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="#fe9f5a"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/lesson_profile_picture"
+            android:layout_width="91dp"
+            android:layout_height="81dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/profiledefault"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="6dp"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/curious_toucan"
+            android:layout_width="119dp"
+            android:layout_height="87dp"
+            android:layout_marginStart="305dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/book_animation"
+            app:lottie_repeatMode="restart"
+            app:lottie_speed="0.2" />
+
+        <TextView
+            android:id="@+id/current_lesson_word"
+            android:layout_width="216dp"
+            android:layout_height="86dp"
+            android:layout_marginLeft="102dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Gather knowledge and prepare for stages"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lessons_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.941"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
